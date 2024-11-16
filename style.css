@@ -1,0 +1,157 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.top_header{
+    background-color: lightblue;
+    display: flex;
+    height: 75px;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+.menu_container{
+    display: inline-block;
+    align-content: center;
+}
+.menu_bar1,.menu_bar2,.menu_bar3{
+    width: 35px;
+    height: 5px;
+    margin: 6px 0;
+    background-color: white;
+    transition-duration: 0.3s;
+}
+.menu_box{
+    z-index: 9999;
+    display: none;
+    background-color: lightgray;
+    position: absolute;
+    width: 175px;
+    right: 0;
+    top: 75px;
+}
+.menu_item{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+.change.menu_box{
+    display: block;
+}
+.container{
+    width:960px;
+    padding: 8px;
+    margin-top:20px;
+    height: 540px;
+}
+.table_top{
+    background-color: #212529;
+    color: white;
+    display: flex;
+    padding: 8px;
+}
+.table_text{
+    margin: auto;
+}
+.modal{
+    display: none;
+    z-index: 99;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+.inner_modal{
+    z-index:999;
+    margin: auto;
+    margin-top:75px;
+    background-color: white;
+    height: 500px;
+    width: 800px;
+}
+.inner_modal_bar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 75px;
+    background-color: lightblue;
+}
+.login_bar{
+    background-color: lightblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 70px;
+    
+}
+.image_outer_modal{
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 99;
+}
+.image_modal{
+    z-index:999;
+    margin: auto;
+    margin-top:75px;
+    background-color: white;
+    height: 550px;
+    width: 600px;
+}
+.image_modal_bar{
+    display: flex;
+    width: 100%;
+    height: 45px;
+    background-color: lightblue;
+}
+.calender_container{
+    height: 690px;
+    width: 1000px;
+    margin: auto;
+    margin-top: 50px;
+    background-color: #212529;
+}
+.calender_bar{
+    background-color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+.calender{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    gap: 2px;
+}
+.calender_top_div{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: lightblue;
+    user-select: none;
+}
+.calender_div{
+    height: 95px;
+    display: inline-block;
+    text-align: center;
+    align-content: center;
+    background-color: lightblue;
+    user-select: none;
+}
+.calender_selected{
+    background-color: white;
+}
