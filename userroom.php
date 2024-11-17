@@ -82,7 +82,7 @@
                         $allrooms=[1,2,3,4,5,6,7,8];
                         $ocupyrooms=$pdo->query("SELECT * FROM `userroom` WHERE `year`=$year AND `month`=$month AND `firstday`<=$date AND $date<=`lastday`")->fetchAll();
                         foreach($ocupyrooms as $ocupyroom){
-                            $delroom=intval(str_replace("Room0","",$ocupyroom["roomno"]))-1;
+                            $delroom=intval(str_replace("Room0","",$ocupyroom["roomno"]));
                             unset($allrooms[$delroom]);
                             array_push($norooms,$delroom);
                         }
@@ -138,8 +138,8 @@
     let endday;
     let roomnum=8;
     let currentdiv;
-    let leftroom=8;
-    let delroom;
+    let leftroomnum=8;
+    let leftroom=[1,2,3,4,5,6,7,8];
     let select_num=document.getElementById("select_num");
     let days=document.getElementById("days");
     document.querySelectorAll(".calender_div_true").forEach(function(div){  
@@ -156,10 +156,19 @@
             for(i=startday;i<=endday;i++){
                 currentdiv=document.getElementById(i);
                 currentdiv.classList.add("calender_selected");
-                let temp=div.dataset.left.split(",");
-                if(leftroom > temp.length){
-                    leftroom=temp.length;
-                }   
+                let currentdelrooms=div.dataset.del.split(",");
+                for(j=0;j<currentdelrooms.length;j++){
+                    let currentdelroom=currentdelrooms[j];
+                    console.log(leftroom.includes(currentdelroom.toString()));
+                    if(leftroom.includes(currentdelroom.toString())){
+                        leftroom.splice(parseInt(currentdelroom),1);
+                        console.log(leftroom);
+                    }
+                }
+                let currentleftroom=div.dataset.left.split(",");
+                if(leftroomnum > currentleftroom.length){
+                    leftroomnum=currentleftroom.length;
+                }
                 delroom=div.dataset.del.split(",");
             }
             days.value=endday-startday+1+" 天";
