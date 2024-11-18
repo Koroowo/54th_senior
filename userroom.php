@@ -102,8 +102,8 @@
         </div>
         <div class="d-flex mt-3">
             <h4 style="margin:0px;">訂房間數</h4>
-            <select id="select_num">
-                <option value=''>選擇房間數</option>
+            <select id="select_num" onchange="selectnum(this.value);">
+                <option value='-1'>選擇房間數</option>
             </select>
         </div>
         <div class="d-flex mt-3">
@@ -118,8 +118,8 @@
         </div>
         <div class="d-flex mt-3">
             <h4 style="margin:0px;">房號</h4>
-            <input type="text" disabled>
-            <button>自動產生房號</button>
+            <input type="text" id="roomno" disabled>
+            <button onclick="generate()">自動產生房號</button>
             <button>選擇房號</button>
         </div>
         <div class="d-flex mt-3">
@@ -142,6 +142,7 @@
     let leftroom=[1,2,3,4,5,6,7,8];
     let select_num=document.getElementById("select_num");
     let days=document.getElementById("days");
+    let userselectnumber=-1;
     document.querySelectorAll(".calender_div_true").forEach(function(div){  
         div.addEventListener("click",function(){
             let clickid=parseInt(div.id);
@@ -158,25 +159,20 @@
                 currentdiv.classList.add("calender_selected");
                 let currentdelrooms=div.dataset.del.split(",");
                 for(j=0;j<currentdelrooms.length;j++){
-                    let currentdelroom=currentdelrooms[j];
-                    console.log(leftroom.includes(currentdelroom.toString()));
-                    if(leftroom.includes(currentdelroom.toString())){
-                        leftroom.splice(parseInt(currentdelroom),1);
+                    let currentdelroom=Number(currentdelrooms[j]);
+                    if(leftroom.includes(currentdelroom)){
+                        leftroom.splice(parseInt(currentdelroom)-1,1);
                         console.log(leftroom);
                     }
                 }
-                let currentleftroom=div.dataset.left.split(",");
-                if(leftroomnum > currentleftroom.length){
-                    leftroomnum=currentleftroom.length;
-                }
-                delroom=div.dataset.del.split(",");
+                leftroomnum=leftroom.length;
             }
             days.value=endday-startday+1+" 天";
             let starttime=document.getElementById(startday).dataset.date;
             let endtime=document.getElementById(endday).dataset.date;
             document.getElementById("startday").value=starttime;
             document.getElementById("endday").value=endtime;
-            rooms(leftroom);
+            rooms(leftroomnum);
         });
     });
     function rooms(totalrooms){
@@ -186,6 +182,33 @@
             option.value = i;
             option.textContent = i;
             select_num.appendChild(option);
+        }
+    }
+    function selectnum(number){
+        if(number!=-1){
+            userselectnumber=number;
+        }
+    }
+    function generate(){
+        let roomno=document.getElementById("roomno");
+        roomno.value="";
+        if(userselectnumber!=-1){
+            let i=0;
+            let userroomnums=[];
+            while(i<userselectnumber){
+                let userroomnum=Math.floor(Math.random()*(leftroom.length));
+                if(!userroomnums.includes(leftroom[userroomnum])){
+                    userroomnums.push(leftroom[userroomnum]);
+                    console.log(userroomnums);
+                    i++;
+                }
+                console.log(userroomnum);
+                // let userselectroom="Room0"+;
+            }
+            for(i=0;i<userroomnums.length;i++){
+                let userroomnos=userroomnums[i];
+                roomno.value=roomno.value+"Room0"+userroomnos+" ";
+            }
         }
     }
 </script>
