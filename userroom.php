@@ -120,7 +120,7 @@
             <h4 style="margin:0px;">房號</h4>
             <input type="text" id="roomno" disabled>
             <button onclick="generate()">自動產生房號</button>
-            <button>選擇房號</button>
+            <button onclick="selectroom()">選擇房號</button>
         </div>
         <div class="d-flex mt-3">
             <button>確定訂房</button>
@@ -202,13 +202,14 @@
                     console.log(userroomnums);
                     i++;
                 }
-                console.log(userroomnum);
-                // let userselectroom="Room0"+;
             }
             for(i=0;i<userroomnums.length;i++){
                 let userroomnos=userroomnums[i];
                 roomno.value=roomno.value+"Room0"+userroomnos+" ";
             }
         }
+    }
+    function selectroom(){
+        
     }
 </script>
