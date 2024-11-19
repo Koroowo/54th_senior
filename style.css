@@ -155,3 +155,24 @@ a{
 .calender_selected{
     background-color: white;
 }
+.select_room_modal_bg{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+.select_room_div{
+    position: relative;
+    background-color: white;
+    height: 60%;
+    width: 85%;
+    top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

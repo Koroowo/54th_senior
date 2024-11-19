@@ -127,6 +127,51 @@
             <button onclick="window.location.reload();">取消</button>
         </div>
     </div>
+    <div class="select_room_modal_bg" id="select_room_modal">
+        <div class="select_room_modal_div">
+            <input type="text" class="w-100" disabled>
+        </div>
+        <div class="select_room_div">
+            <div>
+                <div class="d-flex">
+                    <div class="select_room_no border rounded p-3 m-3" id="select_room_no01">
+                        <p>Room01</p>
+                        <p id="select_room_no_status">空房</p>
+                    </div>
+                    <div class="select_room_no border rounded p-3 m-3" id="select_room_no02">
+                        <p>Room02</p>
+                        <p id="select_room_no_status">空房</p>
+                    </div>
+                    <div class="select_room_no border rounded p-3 m-3" id="select_room_no03">
+                        <p>Room03</p>
+                        <p id="select_room_no_status">空房</p>
+                    </div>
+                    <div class="select_room_no border rounded p-3 m-3" id="select_room_no04">
+                        <p>Room04</p>
+                        <p id="select_room_no_status">空房</p>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <div class="select_room_no border rounded p-3 m-3" id="select_room_no05">
+                        <p>Room05</p>
+                        <p id="select_room_no_status">空房</p>
+                    </div>
+                    <div class="select_room_no border rounded p-3 m-3" id="select_room_no06">
+                        <p>Room06</p>
+                        <p id="select_room_no_status">空房</p>
+                    </div>
+                    <div class="select_room_no border rounded p-3 m-3" id="select_room_no07">
+                        <p>Room07</p>
+                        <p id="select_room_no_status">空房</p>
+                    </div>
+                    <div class="select_room_no border rounded p-3 m-3" id="select_room_no08">
+                        <p>Room08</p>
+                        <p id="select_room_no_status">空房</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
 <script>
@@ -209,7 +254,15 @@
             }
         }
     }
+    let modal=document.getElementById("select_room_modal");
     function selectroom(){
-        
+        if(startday!=null && userselectnumber!=-1){
+            modal.style.display="block";
+            document.title="訪客訂房 - 選擇房間";
+        }
     }
+    modal.addEventListener("click",function(){
+        document.title="快樂旅遊網 - 首頁"
+        modal.style.display="none";
+    })
 </script>
