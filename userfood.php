@@ -106,6 +106,7 @@
     document.querySelectorAll(".image").forEach(function(image){
         image.addEventListener("click",function(){
             let id=image.id;
+            document.getElementById("box_image").style.opacity=1;
             toggleimg(id);
         });
     });
