@@ -54,8 +54,8 @@
             ?>
                 <tr class="text-center">
                     <td class="col-2"><?= $row["user"]?></td>
-                    <td class="col-6"><?php if($row['del_date']==null){ echo $row["message"];}?></td>
-                    <td class="col-3 align-middle" rowspan="2">
+                    <td class="col-7"><?php if($row['del_date']==null){ echo $row["message"];}?></td>
+                    <td class="col-3 align-middle" rowspan="3">
                         <?php 
                             if($row["del_date"]!=null){
                                 echo "<h2>已刪除</h2>";
@@ -125,7 +125,6 @@
             </form>
         </div>
     </div>
-    
 </body>
 </html>
 <script>
